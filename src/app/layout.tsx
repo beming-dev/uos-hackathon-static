@@ -5,23 +5,23 @@ import Navigation from "@/components/Navigation";
 const seoulNamsan = localFont({
   src: [
     {
-      path: "./fonts/seoulNamsanvert.ttf",
+      path: "./fonts/SeoulNamsanvert.ttf",
       weight: "100",
     },
     {
-      path: "./fonts/seoulNamsanM.ttf",
+      path: "./fonts/SeoulNamsanM.ttf",
       weight: "300",
     },
     {
-      path: "./fonts/seoulNamsanL.ttf",
+      path: "./fonts/SeoulNamsanL.ttf",
       weight: "500",
     },
     {
-      path: "./fonts/seoulNamsanEB.ttf",
+      path: "./fonts/SeoulNamsanEB.ttf",
       weight: "700",
     },
     {
-      path: "./fonts/seoulNamsanB.ttf",
+      path: "./fonts/SeoulNamsanB.ttf",
       weight: "900",
     },
   ],
