@@ -1,4 +1,5 @@
 import Script from "next/script";
+import { useEffect, useState } from "react";
 import { Map, MapMarker, MarkerClusterer } from "react-kakao-maps-sdk";
 
 const KAKAO_SDK_URL = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_JAVASCRIPT_KEY}&autoload=false&libraries=clusterer`;
@@ -107,6 +108,16 @@ const KakaoMap = () => {
     { latitude: 37.623727, longitude: 127.110552 },
   ];
 
+  const [isLoaded, setIsLoaded] = useState(false); // SDK 로드 상태
+
+  useEffect(() => {
+    if (window.kakao && window.kakao.maps) {
+      window.kakao.maps.load(() => {
+        setIsLoaded(true); // SDK 로드 완료 시 상태 변경
+      });
+    }
+  }, []);
+
   const customClusterStyles: object[] = [
     {
       width: "50px",
@@ -122,25 +133,33 @@ const KakaoMap = () => {
 
   return (
     <>
-      <Script src={KAKAO_SDK_URL} strategy="beforeInteractive" />
-      <Map
-        center={{ lat: 37.64019, lng: 127.0063 }}
-        style={{ width: "100%", height: "100%" }}
-        level={10} // 지도의 확대 레벨
-      >
-        <MarkerClusterer
-          averageCenter={true}
-          minLevel={8}
-          styles={customClusterStyles}
+      <Script
+        src={KAKAO_SDK_URL}
+        strategy="beforeInteractive"
+        onLoad={() => {
+          setIsLoaded(true);
+        }}
+      />
+      {isLoaded && (
+        <Map
+          center={{ lat: 37.64019, lng: 127.0063 }}
+          style={{ width: "100%", height: "100%" }}
+          level={10} // 지도의 확대 레벨
         >
-          {randomPosition.map((pos) => (
-            <MapMarker
-              key={`${pos.latitude}-${pos.longitude}`}
-              position={{ lat: pos.latitude, lng: pos.longitude }}
-            />
-          ))}
-        </MarkerClusterer>
-      </Map>
+          <MarkerClusterer
+            averageCenter={true}
+            minLevel={8}
+            styles={customClusterStyles}
+          >
+            {randomPosition.map((pos) => (
+              <MapMarker
+                key={`${pos.latitude}-${pos.longitude}`}
+                position={{ lat: pos.latitude, lng: pos.longitude }}
+              />
+            ))}
+          </MarkerClusterer>
+        </Map>
+      )}
     </>
   );
 };
