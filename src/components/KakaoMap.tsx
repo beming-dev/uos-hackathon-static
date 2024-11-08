@@ -1,7 +1,5 @@
-"use client";
-import { useRouter } from "next/navigation";
 import Script from "next/script";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import {
   Map,
   MapMarker,
@@ -128,7 +126,7 @@ const KakaoMap = () => {
     },
   ];
 
-  const [loading, error] = useKakaoLoader({
+  const [loading] = useKakaoLoader({
     appkey: process.env.NEXT_PUBLIC_KAKAO_JAVASCRIPT_KEY as string, // 발급 받은 APPKEY
   });
 
