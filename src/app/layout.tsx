@@ -43,8 +43,8 @@ export default function RootLayout({
       <body className={`${seoulNamsan.variable} antialiased w-full h-full`}>
         <main className="relative container mx-auto max-w-xs h-full m-0">
           {children}
+          <Navigation />
         </main>
-        <Navigation />
       </body>
     </html>
   );
