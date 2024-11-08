@@ -1,6 +1,13 @@
+"use client";
+import { useRouter } from "next/navigation";
 import Script from "next/script";
 import { useEffect, useState } from "react";
-import { Map, MapMarker, MarkerClusterer } from "react-kakao-maps-sdk";
+import {
+  Map,
+  MapMarker,
+  MarkerClusterer,
+  useKakaoLoader,
+} from "react-kakao-maps-sdk";
 
 const KAKAO_SDK_URL = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_JAVASCRIPT_KEY}&autoload=false&libraries=clusterer`;
 
@@ -108,16 +115,6 @@ const KakaoMap = () => {
     { latitude: 37.623727, longitude: 127.110552 },
   ];
 
-  const [isLoaded, setIsLoaded] = useState(false); // SDK 로드 상태
-
-  useEffect(() => {
-    if (window.kakao && window.kakao.maps) {
-      window.kakao.maps.load(() => {
-        setIsLoaded(true); // SDK 로드 완료 시 상태 변경
-      });
-    }
-  }, []);
-
   const customClusterStyles: object[] = [
     {
       width: "50px",
@@ -131,16 +128,19 @@ const KakaoMap = () => {
     },
   ];
 
+  const [loading, error] = useKakaoLoader({
+    appkey: process.env.NEXT_PUBLIC_KAKAO_JAVASCRIPT_KEY as string, // 발급 받은 APPKEY
+  });
+
+  useEffect(() => {
+    console.log(loading);
+  }, [loading]);
+
   return (
     <>
-      <Script
-        src={KAKAO_SDK_URL}
-        strategy="beforeInteractive"
-        onLoad={() => {
-          setIsLoaded(true);
-        }}
-      />
-      {isLoaded && (
+      <Script src={KAKAO_SDK_URL} strategy="beforeInteractive" />
+
+      {!loading && (
         <Map
           center={{ lat: 37.64019, lng: 127.0063 }}
           style={{ width: "100%", height: "100%" }}
