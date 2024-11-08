@@ -1,10 +1,5 @@
 import Script from "next/script";
-import {
-  CustomOverlayMap,
-  Map,
-  MapMarker,
-  MarkerClusterer,
-} from "react-kakao-maps-sdk";
+import { Map, MapMarker, MarkerClusterer } from "react-kakao-maps-sdk";
 
 const KAKAO_SDK_URL = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_JAVASCRIPT_KEY}&autoload=false&libraries=clusterer`;
 

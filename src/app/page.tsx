@@ -1,7 +1,4 @@
-`use client`;
-
 import Header from "@/components/Header";
-import KakaoMap from "@/components/KakaoMap";
 import type { NextPage } from "next";
 import Image from "next/image";
 
