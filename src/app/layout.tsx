@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Navigation from "@/components/Navigation";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -11,6 +12,31 @@ const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
+});
+const seoulNamsan = localFont({
+  src: [
+    {
+      path: "./fonts/seoulNamsanvert.ttf",
+      weight: "100",
+    },
+    {
+      path: "./fonts/seoulNamsanM.ttf",
+      weight: "300",
+    },
+    {
+      path: "./fonts/seoulNamsanL.ttf",
+      weight: "500",
+    },
+    {
+      path: "./fonts/seoulNamsanEB.ttf",
+      weight: "700",
+    },
+    {
+      path: "./fonts/seoulNamsanB.ttf",
+      weight: "900",
+    },
+  ],
+  variable: "--font-geist-mono",
 });
 
 export const metadata: Metadata = {
@@ -24,11 +50,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html lang="en" className="w-screen h-screen">
+      <body className={`${seoulNamsan.variable} antialiased w-full h-full`}>
+        <main className="relative container mx-auto max-w-xs h-full m-0">
+          {children}
+        </main>
+        <Navigation />
       </body>
     </html>
   );

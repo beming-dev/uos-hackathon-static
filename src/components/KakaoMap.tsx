@@ -112,6 +112,19 @@ const KakaoMap = () => {
     { latitude: 37.623727, longitude: 127.110552 },
   ];
 
+  const customClusterStyles: object[] = [
+    {
+      width: "50px",
+      height: "50px",
+      background: "rgba(51, 102, 255, 0.7)", // 파란색 반투명 배경
+      color: "white",
+      textAlign: "center",
+      lineHeight: "50px",
+      borderRadius: "25px", // 원형 클러스터
+      fontSize: "14px",
+    },
+  ];
+
   return (
     <>
       <Script src={KAKAO_SDK_URL} strategy="beforeInteractive" />
@@ -120,7 +133,11 @@ const KakaoMap = () => {
         style={{ width: "100%", height: "100%" }}
         level={10} // 지도의 확대 레벨
       >
-        <MarkerClusterer averageCenter={true} minLevel={10}>
+        <MarkerClusterer
+          averageCenter={true}
+          minLevel={8}
+          styles={customClusterStyles}
+        >
           {randomPosition.map((pos) => (
             <MapMarker
               key={`${pos.latitude}-${pos.longitude}`}
