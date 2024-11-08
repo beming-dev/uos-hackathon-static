@@ -1,3 +1,6 @@
+"use client";
+
+import FindLibBtn from "@/components/FindLibBtn";
 import Header from "@/components/Header";
 import type { NextPage } from "next";
 import Image from "next/image";
@@ -6,7 +9,8 @@ const Home: NextPage = () => {
   return (
     <>
       <Header />
-      <div className="flex flex-col items-center w-full h-full py-16">
+      <div className="relative flex flex-col items-center w-full h-full py-16">
+        <FindLibBtn />
         {/* <KakaoMap /> */}
 
         {/* carousel */}
