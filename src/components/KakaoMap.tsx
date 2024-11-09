@@ -116,6 +116,18 @@ const KakaoMap = ({ pos }: Props) => {
           }}
           level={8} // 지도의 확대 레벨
         >
+          {pos && (
+            <MapMarker
+              position={{ lat: pos.lat, lng: pos.lng }}
+              image={{
+                src: "/icons/current.png",
+                size: {
+                  width: 30,
+                  height: 30,
+                },
+              }}
+            />
+          )}
           <MarkerClusterer
             averageCenter={true}
             minLevel={7}
