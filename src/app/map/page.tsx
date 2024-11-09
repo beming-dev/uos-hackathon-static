@@ -6,7 +6,7 @@ import Image from "next/image";
 const MapPage = () => {
   return (
     <>
-      <div className="absolute top-4 w-full max-w-md mx-auto bg-transparent z-10 px-8">
+      <div className="absolute top-4 w-full max-w-xs mx-auto bg-transparent z-10 px-8">
         <input
           type="text"
           placeholder="Search..."
