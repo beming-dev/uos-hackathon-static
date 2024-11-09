@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
+import { Suspense } from "react";
 const seoulNamsan = localFont({
   src: [
     {
@@ -47,7 +48,7 @@ export default function RootLayout({
         className={`${seoulNamsan.variable} antialiased w-full h-full flex justify-center items-center max-w-lg relative`}
       >
         <main className="container mx-auto max-w-xs h-full m-0">
-          {children}
+          <Suspense fallback={<div>Loading..</div>}>{children}</Suspense>
           <Navigation />
         </main>
       </body>

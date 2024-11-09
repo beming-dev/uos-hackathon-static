@@ -34,8 +34,8 @@ const Navigation = () => {
     },
     {
       img: "/icons/bell-gray.png",
-      txt: "알림",
-      onClick: () => router.push("/"),
+      txt: "프로그램",
+      onClick: () => router.push("/program"),
     },
     {
       img: "/icons/home-black.png",
