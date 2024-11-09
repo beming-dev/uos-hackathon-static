@@ -2,9 +2,15 @@
 
 import KakaoMap from "@/components/KakaoMap";
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+
+export interface pos {
+  lat: number;
+  lng: number;
+}
 
 const MapPage = () => {
+  const [userPos, setUserPos] = useState<pos | null>(null);
   useEffect(() => {
     // 위치 정보 요청 함수
     const requestLocationPermission = () => {
@@ -14,6 +20,7 @@ const MapPage = () => {
             // 위치 정보를 성공적으로 가져온 경우
             const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
+            setUserPos({ lat: latitude, lng: longitude });
             console.log("위도:", latitude, "경도:", longitude);
             // KakaoMap 컴포넌트에 위치 정보 전달 또는 추가 로직 수행 가능
           },
@@ -60,7 +67,7 @@ const MapPage = () => {
           />
         </div>
       </div>
-      <KakaoMap />
+      <KakaoMap pos={userPos} />
     </>
   );
 };

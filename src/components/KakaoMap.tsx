@@ -7,6 +7,7 @@ import {
 } from "react-kakao-maps-sdk";
 import LibInfo from "./LibInfo";
 import Image from "next/image";
+import { pos } from "@/app/map/page";
 
 // const KAKAO_SDK_URL = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_JAVASCRIPT_KEY}&autoload=false&libraries=clusterer`;
 
@@ -17,12 +18,11 @@ export interface libData {
   libraryId: number;
   libraryName: string;
 }
-// interface Props {
-//   libInfoPop: boolean;
-//   setLibInfoPop: React.Dispatch<React.SetStateAction<boolean>>;
-// }
+interface Props {
+  pos: pos | null;
+}
 
-const KakaoMap = () => {
+const KakaoMap = ({ pos }: Props) => {
   const customClusterStyles: object[] = [
     {
       width: "50px",
@@ -102,7 +102,11 @@ const KakaoMap = () => {
 
       {mapLoaded && (
         <Map
-          center={{ lat: 37.64019, lng: 127.0063 }}
+          center={
+            pos
+              ? { lat: pos.lat, lng: pos.lng }
+              : { lat: 37.64019, lng: 127.0063 }
+          }
           style={{
             position: "absolute",
             top: 0,
@@ -110,7 +114,7 @@ const KakaoMap = () => {
             width: "100%",
             height: "100%",
           }}
-          level={10} // 지도의 확대 레벨
+          level={8} // 지도의 확대 레벨
         >
           <MarkerClusterer
             averageCenter={true}
