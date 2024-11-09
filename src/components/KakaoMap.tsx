@@ -53,7 +53,7 @@ const KakaoMap = () => {
       setMapLoaded(true);
 
       (async () => {
-        await fetch("http://1.240.103.57:3017/library/all", {
+        await fetch("/api/library", {
           method: "GET",
           credentials: "include", // 자격 증명을 포함하여 요청
           headers: {
@@ -67,6 +67,7 @@ const KakaoMap = () => {
             return response.json();
           })
           .then((data) => {
+            console.log(data);
             setLibData(() => data);
           })
           .catch((error) => {
