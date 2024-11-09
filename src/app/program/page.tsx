@@ -114,7 +114,7 @@ const Program = () => {
         <div className="flex flex-col mt-8">
           <span className="mb-2">카테고리</span>
           <div className="flex flex-wrap">
-            {category.map((item) => (
+            {category.slice(0, 12).map((item) => (
               <span
                 key={item}
                 className={`text-xs p-2 rounded-full my-1 mx-2 cursor-pointer ${
