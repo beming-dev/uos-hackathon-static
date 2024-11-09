@@ -10,28 +10,6 @@ const Home: NextPage = () => {
   const categories = ["전체", "강연/토크", "교육", "대회", "DIY", "계절 행사"];
   const books = ["/book2.png", "/book3.png", "/book4.png", "/book5.png"];
 
-  useEffect(() => {
-    fetch("http://1.240.103.57:3017/library/all", {
-      method: "GET",
-      credentials: "include", // 자격 증명을 포함하여 요청
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log("Response data:", data);
-      })
-      .catch((error) => {
-        console.error("Fetch error:", error);
-      });
-  }, []);
-
   return (
     <>
       <Header />
