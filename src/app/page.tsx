@@ -23,7 +23,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Header />
-      <div className="relative flex flex-col items-center w-full h-full py-16 overflow-y-scroll no-scrollbar pb-32">
+      <div className="relative flex flex-col items-center w-full h-full py-16 overflow-y-scroll no-scrollbar pb-40">
         <FindLibBtn />
         {/* <KakaoMap /> */}
 
@@ -38,14 +38,14 @@ const Home: NextPage = () => {
         {/* My 정보 */}
         <div className="flex mt-8">
           <div className="left mr-3.5 ">
-            <span className="text-sm">My정보</span>
+            <span className="text-sm">MY 정보</span>
             <div className="w-40 h-36 shadow-custom p-2 flex flex-col justify-between text-sm rounded-md">
               <div className="flex justify-between">
                 <div className="w-16 h-16 relative bg-gray">
                   <Image src="/profile.png" alt="profile" fill />
                 </div>
                 <span className="mt-1">
-                  김시림 님<br></br> 안녕하세요
+                  김시립 님<br></br> 안녕하세요
                 </span>
               </div>
               <div className="flex flex-wrap text-xs rounded-md">
@@ -64,15 +64,34 @@ const Home: NextPage = () => {
           <div className="right">
             <span className="text-sm">즐겨찾는 메뉴</span>
             <div className="h-36 flex flex-col justify-between text-sm">
-              <span className=" flex justify-center items-center w-star h-star shadow-custom2 rounded-md">
-                MY 도서관
-              </span>
-              <span className="flex justify-center items-center w-star h-star shadow-custom2 rounded-md">
-                독서토론게시판
-              </span>
-              <span className="flex justify-center items-center w-star h-star shadow-custom2 rounded-md">
-                희망도서신청
-              </span>
+              <div className="px-2 flex justify-between items-center w-star h-star shadow-custom2 rounded-md text-xs">
+                <Image
+                  src={"/icons/star-01.png"}
+                  width={16}
+                  height={16}
+                  alt="icon"
+                />
+                <span className="ml-2 flex-1">자주 가는 도서관</span>
+              </div>
+
+              <div className="px-2 flex justify-between items-center w-star h-star shadow-custom2 rounded-md text-xs">
+                <Image
+                  src={"/icons/star-02.png"}
+                  width={13}
+                  height={15}
+                  alt="icon"
+                />
+                <span className="ml-2 flex-1">독서토론게시판</span>
+              </div>
+              <div className="px-2 flex justify-between items-center w-star h-star shadow-custom2 rounded-md text-xs">
+                <Image
+                  src={"/icons/star-03.png"}
+                  width={14.5}
+                  height={13}
+                  alt="icon"
+                />
+                <span className="ml-2 flex-1">희망도서신청</span>
+              </div>
             </div>
           </div>
         </div>
@@ -100,7 +119,7 @@ const Home: NextPage = () => {
           <div className="flex overflow-x-scroll no-scrollbar">
             {books.map((bookUrl, i) => (
               <div
-                className="relative min-w-[107px] w-[107px] h-[150px]"
+                className="relative min-w-[107px] w-[107px] h-[150px] shadow-custom2 mr-4"
                 key={i}
               >
                 <Image src={bookUrl} alt="book" fill />
@@ -173,6 +192,32 @@ const Home: NextPage = () => {
             </span>
           </div>
         </div>
+        {/* 신간입고장소 */}
+        <div className="flex flex-col justify-center items-center mt-10 text-[#343434]">
+          <span className="text-xs">신간입고장소</span>
+          <div className="max-w-[320px] flex overflow-x-scroll no-scrollbar mt-2 mb-5 text-xs py-2">
+            <span className="whitespace-nowrap shadow-custom3 px-2 mr-2">
+              서울도서관
+            </span>
+            <span className="whitespace-nowrap shadow-custom3 px-2 mr-2">
+              어울림도서관
+            </span>
+            <span className="whitespace-nowrap shadow-custom3 px-2 mr-2">
+              강북구립도서관
+            </span>
+            <span className="whitespace-nowrap shadow-custom3 px-2 mr-2">
+              노원중앙도서관
+            </span>
+          </div>
+          <span
+            className="text-xxs underline"
+            style={{
+              textUnderlineOffset: "4px",
+            }}
+          >
+            원하는 도서관에 신간도서 신청하기
+          </span>
+        </div>
       </div>
     </>
   );
@@ -180,4 +225,4 @@ const Home: NextPage = () => {
 
 export default Home;
 
-/* Rectangle 2 */
+/* 서울도서관 */

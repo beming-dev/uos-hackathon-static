@@ -16,8 +16,8 @@ const LibInfo = ({ libData, setLibInfoPop }: Props) => {
     setLibInfoPop(false);
   };
   return (
-    <div className="absolute left-0 flex justify-center bottom-16 w-full bg-transparent overflow-hidden border border-gray-200 z-30">
-      <div className="w-4/5 bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 z-30">
+    <div className="absolute left-0 flex justify-center bottom-20 w-full bg-transparent overflow-hidden border border-gray-200 z-30">
+      <div className="w-[90%] bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 z-30">
         {/* 이미지 섹션 */}
         <div className="relative w-full h-48">
           {/* button box */}

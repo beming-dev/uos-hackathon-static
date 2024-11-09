@@ -117,7 +117,7 @@ const Program = () => {
             {category.slice(0, 12).map((item) => (
               <span
                 key={item}
-                className={`text-xs p-2 rounded-full my-1 mx-2 cursor-pointer ${
+                className={`tracking-widest text-xs p-2 rounded-full my-1 mx-2 cursor-pointer ${
                   item === selectedCategory
                     ? "bg-[#007A9F] text-white"
                     : "bg-gray-200 text-black"
@@ -133,29 +133,36 @@ const Program = () => {
         {/* 프로그램 */}
         <div className="mt-10">
           <span>프로그램</span>
-          <div className="flex flex-col">
+          <div className="flex flex-col ">
             {categoryInfoArr.map((info, i) => (
               <button
                 key={i}
-                className="rounded-md shadow-custom2 mb-8 pb-4"
+                className="rounded-2xl shadow-custom2 mb-8 pb-4"
                 onClick={() =>
                   router.push(`/program/detail?num=${info.programId}`)
                 }
               >
-                <div className="relative w-full h-96">
-                  <Image src={info.imageUrl} alt="program" fill />
+                <div className="relative w-full h-[500px] rounded-2xl">
+                  <Image
+                    src={info.imageUrl}
+                    alt="program"
+                    fill
+                    style={{
+                      borderRadius: "1rem 1rem 0 0",
+                    }}
+                  />
                 </div>
-                <div className="flex flex-basis text-start justify-between items-center px-4 pt-4 mb-2">
+                <div className="flex flex-basis text-start justify-between items-center px-4 pt-4 mb-4">
                   <span className="mr-4">{info.programName}</span>
                   <span className="text-gray-400 text-xs whitespace-nowrap">
                     {info.libraryName}
                   </span>
                 </div>
-                <span className="text-xs px-4 self-start">
+                <p className="text-xs px-4 w-full text-start my-2">
                   모집중 &nbsp;
                   {dateConverter(info.startProgram)} -
                   {dateConverter(info.endProgram)}
-                </span>
+                </p>
               </button>
             ))}
           </div>

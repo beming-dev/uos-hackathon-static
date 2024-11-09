@@ -30,6 +30,7 @@ export default {
       boxShadow: {
         custom: "0px 2px 5px rgba(0, 0, 0, 0.1)",
         custom2: "0px 2px 5px rgba(0, 0, 0, 0.1)",
+        custom3: "0px 2px 5px rgba(0, 0, 0, 0.1)",
       },
       fontSize: {
         xs: "13px", // 새로운 작은 폰트 사이즈
@@ -39,7 +40,3 @@ export default {
   },
   plugins: [],
 } satisfies Config;
-
-/* 마이정보 */
-
-/* 마이정보 */

@@ -34,7 +34,7 @@ const Header = () => {
   return (
     <>
       <header className="bg-white w-screen max-w-lg h-16 flex items-center justify-between absolute top-0 left-0 z-10 px-8">
-        <button onClick={toggleSidebar} className="relative w-6 h-6">
+        <button onClick={toggleSidebar} className="relative w-6 h-5">
           <Image src={"/icons/hamburger.png"} alt="hamburger" fill />
         </button>
 

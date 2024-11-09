@@ -1,13 +1,15 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { categoryCard } from "../page";
 import Image from "next/image";
+import Header from "@/components/Header";
 
 const ProgramDetail = () => {
   const searchParams = useSearchParams();
   const programNum = searchParams.get("num");
+  const router = useRouter();
 
   const [programInfo, setProgramInfo] = useState<categoryCard>();
 
@@ -59,9 +61,17 @@ const ProgramDetail = () => {
   return (
     programInfo && (
       <>
-        <div className="relative flex flex-col w-full h-full px-4 py-20 overflow-y-scroll no-scrollbar pb-32">
+        <div className="relative flex flex-col w-full h-full px-4 pt-20 overflow-y-scroll no-scrollbar pb-20">
+          <Header />
           <div className="relative w-full h-auto min-h-[500px] mb-8">
-            <Image src={programInfo.imageUrl} alt="program" fill />
+            <Image
+              src={programInfo.imageUrl}
+              alt="program"
+              fill
+              style={{
+                borderRadius: "1rem 1rem 0 0",
+              }}
+            />
           </div>
 
           <span className="text-2xl mb-4">{programInfo?.programName}</span>
@@ -100,7 +110,7 @@ const ProgramDetail = () => {
           </div>
           <div className="flex justify-between items-center mt-6">
             <div className="flex flex-col align-center">
-              <span className="text-xl text-center">
+              <span className="text-xl text-start">
                 {programInfo.libraryName}
               </span>
               <span className="text-xs">
@@ -108,7 +118,10 @@ const ProgramDetail = () => {
                 {formatDate(programInfo.acceptEnd)}{" "}
               </span>
             </div>
-            <button className="text-white h-10 px-10 rounded-full bg-[#007A9F]">
+            <button
+              onClick={() => router.push(programInfo.programUrl)}
+              className="text-white h-10 px-10 rounded-full bg-[#007A9F]"
+            >
               예약하기
             </button>
           </div>
