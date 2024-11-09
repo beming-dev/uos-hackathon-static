@@ -37,7 +37,7 @@ const MapPage = () => {
         <Image src="/icons/connect-gray.png" alt="connect" fill></Image>
       </button>
       <KakaoMap setLibInfoPop={setLibInfoPop} />
-      {libInfoPop && <LibInfo />}
+      {libInfoPop && <LibInfo setLibInfoPop={setLibInfoPop} />}
     </>
   );
 };
