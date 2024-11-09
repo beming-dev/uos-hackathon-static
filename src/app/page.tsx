@@ -4,10 +4,21 @@ import FindLibBtn from "@/components/FindLibBtn";
 import Header from "@/components/Header";
 import type { NextPage } from "next";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const Home: NextPage = () => {
+  const bookCategories = [
+    "전체",
+    "인문/역사",
+    "예술",
+    "종교",
+    "경제/자기계발",
+    "기술",
+  ];
   const categories = ["전체", "강연/토크", "교육", "대회", "DIY", "계절 행사"];
   const books = ["/book2.png", "/book3.png", "/book4.png", "/book5.png"];
+
+  const router = useRouter();
 
   return (
     <>
@@ -70,7 +81,9 @@ const Home: NextPage = () => {
         <div className="mt-10 w-80">
           <div className="flex justify-between">
             <span className="text-lg">이달의 프로그램</span>
-            <button className="text-sm">더보기 +</button>
+            <button className="text-sm" onClick={() => router.push("/program")}>
+              더보기 +
+            </button>
           </div>
           <div className="mt-4">
             {categories.map((category, i) => (
@@ -114,6 +127,48 @@ const Home: NextPage = () => {
             <div className="absolute w-[78px] h-[113px] right-4 bottom-6">
               <Image src="/book.png" alt="book" fill />
             </div>
+          </div>
+        </div>
+
+        {/* 이달의 신간도서*/}
+        <div className="mt-10 w-80">
+          <div className="flex justify-between">
+            <span className="text-lg">이달의 신간도서</span>
+            <button className="text-sm" onClick={() => router.push("/program")}>
+              더보기 +
+            </button>
+          </div>
+          <div className="mt-4 overflow-x-scroll no-scrollbar whitespace-nowrap">
+            {bookCategories.map((category, i) => (
+              <span
+                className={`text-sm mr-4 ${
+                  category == "전체" ? "text-black" : "text-gray-300"
+                } `}
+                key={i}
+              >
+                {category}
+              </span>
+            ))}
+          </div>
+          <div className="flex justify-between items-end mt-6">
+            <div className="w-[92px] h-[135px] relative">
+              <Image src="/newBook01.png" alt="book" fill />
+            </div>
+            <div className="w-[147px] h-[187px] relative">
+              <Image src="/newBook02.png" alt="book" fill />
+            </div>
+            <div className="w-[92px] h-[135px] relative">
+              <Image src="/newBook03.png" alt="book" fill />
+            </div>
+          </div>
+          <div className="flex flex-col justify-center items-center">
+            <span>“ 불안한 십대를 위한 사회정서학습 ” </span>
+            <span className="text-xs my-2">
+              스트레스를 조절하고 집중력을 강화하는 마음챙김 배우기
+            </span>
+            <span className="text-xs text-gray-300">
+              퍼트리샤 C.브로더릭 저자(글) · 김윤경 번역
+            </span>
           </div>
         </div>
       </div>
