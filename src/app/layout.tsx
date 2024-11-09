@@ -39,9 +39,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="light w-screen h-screen">
-      <body className={`${seoulNamsan.variable} antialiased w-full h-full`}>
-        <main className="relative container mx-auto max-w-xs h-full m-0">
+    <html
+      lang="en"
+      className="light w-screen h-screen no-scrollbar flex justify-center items-center"
+    >
+      <body
+        className={`${seoulNamsan.variable} antialiased w-full h-full flex justify-center items-center max-w-lg relative`}
+      >
+        <main className="container mx-auto max-w-xs h-full m-0">
           {children}
           <Navigation />
         </main>

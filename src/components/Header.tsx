@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Header = () => {
   return (
-    <header className="bg-white w-full h-16 flex items-center justify-between absolute top-0 left-0 z-10 px-8">
+    <header className="bg-white w-screen max-w-lg h-16 flex items-center justify-between absolute top-0 left-0 z-10 px-8">
       <div className="relative w-6 h-6">
         <Image src={"/icons/hamburger.png"} alt="hamburger" fill />
       </div>

@@ -35,7 +35,7 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="absolute w-full h-16 bg-white bottom-0 left-0 z-10">
+    <nav className="absolute w-screen max-w-lg h-16 bg-white bottom-0 left-0 z-10">
       <div className="w-full h-full flex justify-evenly items-center">
         {iconArr.map((icon) =>
           navIcon(icon.img, icon.txt, icon.onclickUrl, router)
