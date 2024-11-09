@@ -14,10 +14,10 @@ const Home: NextPage = () => {
         {/* <KakaoMap /> */}
 
         {/* carousel */}
-        <div className="relative w-80 h-44">
+        <div className="relative w-80 h-44 min-h-44">
           <Image src={"/carousel01.png"} alt="carousel" fill />
         </div>
-        <div className="relative w-carousel h-carousel">
+        <div className="relative w-carousel h-carousel min-h-carousel">
           <Image src={"/carousel.png"} alt="carousel" fill />
         </div>
 
