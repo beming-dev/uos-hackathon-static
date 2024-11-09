@@ -117,7 +117,7 @@ const KakaoMap = () => {
     {
       width: "50px",
       height: "50px",
-      background: "rgba(51, 102, 255, 0.7)", // 파란색 반투명 배경
+      background: "rgba(233, 83, 124, 0.7)", // 파란색 반투명 배경
       color: "white",
       textAlign: "center",
       lineHeight: "50px",
@@ -128,6 +128,7 @@ const KakaoMap = () => {
 
   const [loading] = useKakaoLoader({
     appkey: process.env.NEXT_PUBLIC_KAKAO_JAVASCRIPT_KEY as string, // 발급 받은 APPKEY
+    libraries: ["clusterer"],
   });
 
   const [mapLoaded, setMapLoaded] = useState(false);
@@ -140,7 +141,7 @@ const KakaoMap = () => {
 
   return (
     <>
-      <Script src={KAKAO_SDK_URL} strategy="beforeInteractive" />
+      {/* <Script src={KAKAO_SDK_URL} strategy="beforeInteractive" async /> */}
 
       {mapLoaded && (
         <Map

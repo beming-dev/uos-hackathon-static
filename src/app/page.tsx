@@ -25,7 +25,7 @@ const Home: NextPage = () => {
         <div className="flex mt-8">
           <div className="left mr-3.5 ">
             <span className="text-sm">My정보</span>
-            <div className="w-40 h-36 shadow-custom p-2 flex flex-col justify-between text-sm">
+            <div className="w-40 h-36 shadow-custom p-2 flex flex-col justify-between text-sm rounded-md">
               <div className="flex justify-between">
                 <div className="w-16 h-16 relative bg-gray">
                   <Image src="/profile.png" alt="profile" fill />
@@ -34,7 +34,7 @@ const Home: NextPage = () => {
                   김시림 님<br></br> 안녕하세요
                 </span>
               </div>
-              <div className="flex flex-wrap text-xs">
+              <div className="flex flex-wrap text-xs rounded-md">
                 <span className="flex-auto basis-1/2">
                   예약 &nbsp; &nbsp; 1권
                 </span>
@@ -50,13 +50,13 @@ const Home: NextPage = () => {
           <div className="right">
             <span className="text-sm">즐겨찾는 메뉴</span>
             <div className="h-36 flex flex-col justify-between text-sm">
-              <span className=" flex justify-center items-center w-star h-star shadow-custom2">
+              <span className=" flex justify-center items-center w-star h-star shadow-custom2 rounded-md">
                 MY 도서관
               </span>
-              <span className="flex justify-center items-center w-star h-star shadow-custom2">
+              <span className="flex justify-center items-center w-star h-star shadow-custom2 rounded-md">
                 독서토론게시판
               </span>
-              <span className="flex justify-center items-center w-star h-star shadow-custom2">
+              <span className="flex justify-center items-center w-star h-star shadow-custom2 rounded-md">
                 희망도서신청
               </span>
             </div>
