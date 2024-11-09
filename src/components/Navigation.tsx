@@ -19,7 +19,9 @@ const navIcon = (
       <div className="relative w-nav-icon h-nav-icon">
         <Image src={img} alt="bell" fill />
       </div>
-      <span className="text-gray-400">{txt}</span>
+      <span className={`${txt == "홈" ? "text-black" : "text-gray-400"}`}>
+        {txt}
+      </span>
     </button>
   );
 };
@@ -28,7 +30,7 @@ const Navigation = () => {
   const iconArr = [
     { img: "/icons/card.png", txt: "대출증", onclickUrl: "/" },
     { img: "/icons/bell-gray.png", txt: "알림", onclickUrl: "/" },
-    { img: "/icons/home-gray.png", txt: "홈", onclickUrl: "/" },
+    { img: "/icons/home-black.png", txt: "홈", onclickUrl: "/" },
     { img: "/icons/person-gray.png", txt: "내 정보", onclickUrl: "/" },
   ];
 
