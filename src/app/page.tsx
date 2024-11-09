@@ -67,14 +67,21 @@ const Home: NextPage = () => {
         </div>
 
         {/* 이달의 프로그램*/}
-        <div className="mt-10 w-full">
+        <div className="mt-10 w-80">
           <div className="flex justify-between">
-            <span>이달의 프로그램</span>
-            <button>더보기 +</button>
+            <span className="text-lg">이달의 프로그램</span>
+            <button className="text-sm">더보기 +</button>
           </div>
-          <div>
+          <div className="mt-4">
             {categories.map((category, i) => (
-              <span key={i}>{category}</span>
+              <span
+                className={`text-sm mr-4 ${
+                  category == "전체" ? "text-black" : "text-gray-300"
+                } `}
+                key={i}
+              >
+                {category}
+              </span>
             ))}
           </div>
           <div className="flex overflow-x-scroll no-scrollbar">
