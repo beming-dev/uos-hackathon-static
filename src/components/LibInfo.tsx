@@ -1,10 +1,17 @@
 import Image from "next/image";
+import { libData } from "./KakaoMap";
 
 interface Props {
+  libData: libData;
   setLibInfoPop: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const LibInfo = ({ setLibInfoPop }: Props) => {
+const LibInfo = ({ libData, setLibInfoPop }: Props) => {
+  function getRandomImg() {
+    const randomNum = Math.floor(Math.random() * 6) + 1;
+    return "/lib0" + randomNum + ".jpg";
+  }
+
   const onCloseClick = () => {
     setLibInfoPop(false);
   };
@@ -23,7 +30,7 @@ const LibInfo = ({ setLibInfoPop }: Props) => {
             </button>
           </div>
           <Image
-            src="/lib01.jpg" // 이미지 파일 경로를 지정하세요.
+            src={getRandomImg()} // 이미지 파일 경로를 지정하세요.
             alt="Library"
             fill
           />
@@ -36,7 +43,9 @@ const LibInfo = ({ setLibInfoPop }: Props) => {
 
         {/* 텍스트 섹션 */}
         <div className="p-4">
-          <h3 className="text-lg font-semibold text-gray-900">서울도서관</h3>
+          <h3 className="text-lg font-semibold text-gray-900">
+            {libData.libraryName}
+          </h3>
           <p className="text-sm text-gray-600">영업 중 09:00 - 18:00</p>
         </div>
       </div>

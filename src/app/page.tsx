@@ -4,7 +4,6 @@ import FindLibBtn from "@/components/FindLibBtn";
 import Header from "@/components/Header";
 import type { NextPage } from "next";
 import Image from "next/image";
-import { useEffect } from "react";
 
 const Home: NextPage = () => {
   const categories = ["전체", "강연/토크", "교육", "대회", "DIY", "계절 행사"];

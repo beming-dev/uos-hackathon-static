@@ -5,30 +5,23 @@ import {
   MarkerClusterer,
   useKakaoLoader,
 } from "react-kakao-maps-sdk";
+import LibInfo from "./LibInfo";
 
 // const KAKAO_SDK_URL = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_JAVASCRIPT_KEY}&autoload=false&libraries=clusterer`;
 
-interface libData {
+export interface libData {
   isConnected: boolean;
   latitude: number;
   longitude: number;
   libraryId: number;
   libraryName: string;
 }
-interface Props {
-  setLibInfoPop: React.Dispatch<React.SetStateAction<boolean>>;
-}
+// interface Props {
+//   libInfoPop: boolean;
+//   setLibInfoPop: React.Dispatch<React.SetStateAction<boolean>>;
+// }
 
-const KakaoMap = ({ setLibInfoPop }: Props) => {
-  const markerImageSrc = "/icons/marker.png";
-  const imageSize = { width: 46, height: 46 };
-
-  const [libData, setLibData] = useState<libData[]>([]);
-
-  // useEffect(() => {
-
-  // }, []);
-
+const KakaoMap = () => {
   const customClusterStyles: object[] = [
     {
       width: "50px",
@@ -47,6 +40,12 @@ const KakaoMap = ({ setLibInfoPop }: Props) => {
     libraries: ["clusterer"],
   });
 
+  const markerImageSrc = "/icons/marker.png";
+  const imageSize = { width: 46, height: 46 };
+
+  const [libData, setLibData] = useState<libData[]>([]);
+  const [libInfoPop, setLibInfoPop] = useState(false);
+  const [selected, setSelected] = useState(0);
   const [mapLoaded, setMapLoaded] = useState(false);
 
   useEffect(() => {
@@ -79,6 +78,7 @@ const KakaoMap = ({ setLibInfoPop }: Props) => {
 
   const onMarkerClick = (libIndex: number) => {
     setLibInfoPop(true);
+    setSelected(libIndex);
   };
   return (
     <>
@@ -92,7 +92,7 @@ const KakaoMap = ({ setLibInfoPop }: Props) => {
         >
           <MarkerClusterer
             averageCenter={true}
-            minLevel={5}
+            minLevel={7}
             styles={customClusterStyles}
           >
             {libData.map((lib, i) => (
@@ -107,6 +107,12 @@ const KakaoMap = ({ setLibInfoPop }: Props) => {
               />
             ))}
           </MarkerClusterer>
+          {libInfoPop && (
+            <LibInfo
+              libData={libData[selected]}
+              setLibInfoPop={setLibInfoPop}
+            />
+          )}
         </Map>
       )}
     </>
