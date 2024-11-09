@@ -45,6 +45,7 @@ const KakaoMap = () => {
   const imageSize = { width: 46, height: 46 };
 
   const [libData, setLibData] = useState<libData[]>([]);
+  const [libDataForSave, setLibDataForSave] = useState<libData[]>([]);
   const [libInfoPop, setLibInfoPop] = useState(false);
   const [selected, setSelected] = useState(0);
   const [mapLoaded, setMapLoaded] = useState(false);
@@ -68,8 +69,8 @@ const KakaoMap = () => {
             return response.json();
           })
           .then((data) => {
-            console.log(data);
             setLibData(() => data);
+            setLibDataForSave(() => data);
           })
           .catch((error) => {
             console.error("Fetch error:", error);
@@ -78,7 +79,13 @@ const KakaoMap = () => {
     }
   }, [loading]);
 
-  useEffect(() => {}, [isConnectClicked]);
+  useEffect(() => {
+    if (isConnectClicked) {
+      setLibData(libDataForSave.filter((data) => data.isConnected));
+    } else {
+      setLibData(libDataForSave);
+    }
+  }, [isConnectClicked]);
 
   const onMarkerClick = (libIndex: number) => {
     setLibInfoPop(true);
