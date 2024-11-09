@@ -41,7 +41,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="light w-screen h-screen no-scrollbar flex justify-center items-center"
+      className="light w-screen h-screen no-scrollbar flex justify-center items-center text-black"
     >
       <body
         className={`${seoulNamsan.variable} antialiased w-full h-full flex justify-center items-center max-w-lg relative`}
