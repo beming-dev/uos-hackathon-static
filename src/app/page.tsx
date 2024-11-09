@@ -31,7 +31,7 @@ const Home: NextPage = () => {
         <div className="relative w-80 h-44 min-h-44">
           <Image src={"/carousel01.png"} alt="carousel" fill />
         </div>
-        <div className="relative w-carousel h-carousel min-h-carousel">
+        <div className="relative w-carousel h-carousel min-h-[5px]">
           <Image src={"/carousel.png"} alt="carousel" fill />
         </div>
 
@@ -113,7 +113,7 @@ const Home: NextPage = () => {
         {/* 이달의 책 추천 */}
         <div className="mt-10">
           <span>이달의 책 추천</span>
-          <div className="relative flex w-80 shadow-custom2 mt-6 p-4">
+          <div className="relative flex w-80 shadow-custom2 mt-6 p-4 rounded-lg">
             <div className="flex flex-col">
               <span>노벨문학상 ‘한강 열풍’</span>
               <span className="text-xxs font-light mb-2">
@@ -150,7 +150,7 @@ const Home: NextPage = () => {
               </span>
             ))}
           </div>
-          <div className="flex justify-between items-end mt-6">
+          <div className="flex justify-between items-end mt-6 mb-4">
             <div className="w-[92px] h-[135px] relative">
               <Image src="/newBook01.png" alt="book" fill />
             </div>
@@ -162,7 +162,9 @@ const Home: NextPage = () => {
             </div>
           </div>
           <div className="flex flex-col justify-center items-center">
-            <span>“ 불안한 십대를 위한 사회정서학습 ” </span>
+            <span className="tracking-widest">
+              “ 불안한 십대를 위한 사회정서학습 ”{" "}
+            </span>
             <span className="text-xs my-2">
               스트레스를 조절하고 집중력을 강화하는 마음챙김 배우기
             </span>

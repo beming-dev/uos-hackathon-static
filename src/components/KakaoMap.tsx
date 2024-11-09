@@ -23,25 +23,13 @@ interface Props {
 }
 
 const KakaoMap = ({ pos }: Props) => {
-  const customClusterStyles: object[] = [
-    {
-      width: "50px",
-      height: "50px",
-      background: "rgba(233, 83, 124, 0.7)", // 파란색 반투명 배경
-      color: "white",
-      textAlign: "center",
-      lineHeight: "50px",
-      borderRadius: "25px", // 원형 클러스터
-      fontSize: "14px",
-    },
-  ];
-
   const [loading] = useKakaoLoader({
     appkey: process.env.NEXT_PUBLIC_KAKAO_JAVASCRIPT_KEY as string, // 발급 받은 APPKEY
     libraries: ["clusterer"],
   });
 
   const markerImageSrc = "/icons/marker.png";
+  const markerImageGraySrc = "/icons/marker-gray.png";
   const imageSize = { width: 46, height: 46 };
 
   const [libData, setLibData] = useState<libData[]>([]);
@@ -50,6 +38,22 @@ const KakaoMap = ({ pos }: Props) => {
   const [selected, setSelected] = useState(0);
   const [mapLoaded, setMapLoaded] = useState(false);
   const [isConnectClicked, setIsConnectClicked] = useState(false);
+
+  const customClusterStyles: object[] = [
+    {
+      width: "50px",
+      height: "50px",
+      background: isConnectClicked
+        ? "rgba(233, 83, 124, 0.7)"
+        : "rgba(160, 160, 160, 0.7)",
+      color: "white",
+      textAlign: "center",
+      lineHeight: "50px",
+      borderRadius: "25px", // 원형 클러스터
+      fontSize: "14px",
+    },
+  ];
+
   useEffect(() => {
     if (!loading) {
       setMapLoaded(true);
@@ -130,7 +134,7 @@ const KakaoMap = ({ pos }: Props) => {
           )}
           <MarkerClusterer
             averageCenter={true}
-            minLevel={7}
+            minLevel={8}
             styles={customClusterStyles}
           >
             {libData.map((lib, i) => (
@@ -138,7 +142,7 @@ const KakaoMap = ({ pos }: Props) => {
                 key={`${i}`}
                 position={{ lat: lib.longitude, lng: lib.latitude }}
                 image={{
-                  src: markerImageSrc,
+                  src: lib.isConnected ? markerImageSrc : markerImageGraySrc,
                   size: imageSize,
                 }}
                 onClick={() => onMarkerClick(i)}

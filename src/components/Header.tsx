@@ -64,9 +64,11 @@ const Header = () => {
         {/* Sidebar Content */}
         <div className="p-6">
           <Image src="/logo.png" alt="관심목록" width={100} height={24} />
-          <p className="text-lg font-semibold mt-6 mb-6">김시립 님 </p>
+          <p className="text-lg font-semibold mt-6 mb-6">
+            김시립 님 <span className="font-thin">&gt;</span>
+          </p>
 
-          <div className="flex justify-around my-12">
+          <div className="flex justify-around mt-10 mb-8">
             <div className="flex flex-col justify-between items-center w-[43px] h-[54px] flex flex-col items-center">
               <Image
                 src="/icons/big-heart.png"
@@ -100,21 +102,23 @@ const Header = () => {
             </div>
           </div>
 
+          <div className="border-b border-gray-300 mb-6"></div>
+
           <ul className="space-y-4 text-sm">
-            <li className="flex items-center border-b pb-2">
-              <span className="mr-2">➤</span> 자료검색
+            <li className="flex items-center border-b border-gray-400 pb-2">
+              <span className="mr-2">&gt;</span> 자료검색
             </li>
-            <li className="flex items-center border-b pb-2">
-              <span className="mr-2">➤</span> 디지털컬렉션
+            <li className="flex items-center border-b border-gray-400 pb-2">
+              <span className="mr-2">&gt;</span> 디지털컬렉션
             </li>
-            <li className="flex items-center border-b pb-2">
-              <span className="mr-2">➤</span> 신청 참여
+            <li className="flex items-center border-b border-gray-400 pb-2">
+              <span className="mr-2">&gt;</span> 신청 참여
             </li>
-            <li className="flex items-center border-b pb-2">
-              <span className="mr-2">➤</span> 도서관 이용
+            <li className="flex items-center border-b border-gray-400 pb-2">
+              <span className="mr-2">&gt;</span> 도서관 이용
             </li>
-            <li className="flex items-center border-b pb-2">
-              <span className="mr-2">➤</span> 도서관 소개
+            <li className="flex items-center border-b border-gray-400 pb-2">
+              <span className="mr-2">&gt;</span> 도서관 소개
             </li>
           </ul>
         </div>
@@ -123,7 +127,7 @@ const Header = () => {
       {/* Overlay */}
       {isSidebarOpen && (
         <div
-          className="fixed inset-0 bg-black opacity-50 z-10"
+          className="fixed inset-0 bg-black opacity-50 z-30"
           onClick={toggleSidebar}
         ></div>
       )}

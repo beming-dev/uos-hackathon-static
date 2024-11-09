@@ -28,7 +28,7 @@ export default {
         customBlue: "#007A9F",
       },
       boxShadow: {
-        custom: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+        custom: "0px 2px 5px rgba(0, 0, 0, 0.1)",
         custom2: "0px 2px 5px rgba(0, 0, 0, 0.1)",
       },
       fontSize: {
@@ -39,3 +39,7 @@ export default {
   },
   plugins: [],
 } satisfies Config;
+
+/* 마이정보 */
+
+/* 마이정보 */
