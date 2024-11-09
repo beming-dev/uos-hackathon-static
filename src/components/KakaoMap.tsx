@@ -10,7 +10,7 @@ import {
 const KAKAO_SDK_URL = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_JAVASCRIPT_KEY}&autoload=false&libraries=clusterer`;
 
 const KakaoMap = () => {
-  const [randomPosition, setRandomPosition] = useState([
+  const [randomPosition] = useState([
     { latitude: 37.64019, longitude: 127.0063 },
     { latitude: 37.454339, longitude: 127.107161 },
     { latitude: 37.605167, longitude: 127.039758 },
