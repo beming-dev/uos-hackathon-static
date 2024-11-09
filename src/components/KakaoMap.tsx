@@ -6,6 +6,7 @@ import {
   useKakaoLoader,
 } from "react-kakao-maps-sdk";
 import LibInfo from "./LibInfo";
+import Image from "next/image";
 
 // const KAKAO_SDK_URL = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_JAVASCRIPT_KEY}&autoload=false&libraries=clusterer`;
 
@@ -47,7 +48,7 @@ const KakaoMap = () => {
   const [libInfoPop, setLibInfoPop] = useState(false);
   const [selected, setSelected] = useState(0);
   const [mapLoaded, setMapLoaded] = useState(false);
-
+  const [isConnectClicked, setIsConnectClicked] = useState(false);
   useEffect(() => {
     if (!loading) {
       setMapLoaded(true);
@@ -77,10 +78,17 @@ const KakaoMap = () => {
     }
   }, [loading]);
 
+  useEffect(() => {}, [isConnectClicked]);
+
   const onMarkerClick = (libIndex: number) => {
     setLibInfoPop(true);
     setSelected(libIndex);
   };
+
+  const onConnectClick = () => {
+    setIsConnectClicked(!isConnectClicked);
+  };
+
   return (
     <>
       {/* <Script src={KAKAO_SDK_URL} strategy="beforeInteractive" async /> */}
@@ -114,6 +122,20 @@ const KakaoMap = () => {
               setLibInfoPop={setLibInfoPop}
             />
           )}
+          <button
+            className="w-[40px] h-[38px] absolute z-20 right-4 top-20"
+            onClick={onConnectClick}
+          >
+            <Image
+              src={
+                isConnectClicked
+                  ? `/icons/connect-pink.png`
+                  : `/icons/connect-gray.png`
+              }
+              alt="connect"
+              fill
+            ></Image>
+          </button>
         </Map>
       )}
     </>

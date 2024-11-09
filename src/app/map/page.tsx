@@ -21,9 +21,6 @@ const MapPage = () => {
           />
         </div>
       </div>
-      <button className="w-[40px] h-[38px] absolute z-20 right-4 top-20">
-        <Image src="/icons/connect-gray.png" alt="connect" fill></Image>
-      </button>
       <KakaoMap />
     </>
   );
