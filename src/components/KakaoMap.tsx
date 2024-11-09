@@ -103,7 +103,13 @@ const KakaoMap = () => {
       {mapLoaded && (
         <Map
           center={{ lat: 37.64019, lng: 127.0063 }}
-          style={{ width: "100%", height: "100%" }}
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+          }}
           level={10} // 지도의 확대 레벨
         >
           <MarkerClusterer
@@ -143,21 +149,6 @@ const KakaoMap = () => {
               fill
             ></Image>
           </button>
-          {/* <div className="absolute top-4 w-full max-w-md mx-auto bg-transparent z-10 px-8">
-            <input
-              type="text"
-              placeholder="Search..."
-              className="w-full h-10 pl-12 pr-4 bg-gray-300 text-gray-900 rounded-full focus:outline-none focus:ring-2"
-            />
-            <div className="absolute left-12 top-1/2 transform -translate-y-1/2">
-              <Image
-                src="/icons/search.png"
-                alt="Search Icon"
-                width={20}
-                height={20}
-              />
-            </div>
-          </div> */}
         </Map>
       )}
     </>
