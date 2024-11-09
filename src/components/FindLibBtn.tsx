@@ -10,7 +10,7 @@ const FindLibBtn = () => {
 
   return (
     <button
-      className="absolute bottom-20 flex items-center justify-center w-28 h-9 z-20 bg-customBlue rounded-full text-sm"
+      className="fixed bottom-20 flex items-center justify-center w-28 h-9 z-20 bg-customBlue rounded-full text-sm"
       onClick={onButtonCilck}
     >
       <div className="relative w-3.5 h-3.5 mr-1 mb-1">

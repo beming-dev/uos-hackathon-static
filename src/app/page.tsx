@@ -4,12 +4,38 @@ import FindLibBtn from "@/components/FindLibBtn";
 import Header from "@/components/Header";
 import type { NextPage } from "next";
 import Image from "next/image";
+import { useEffect } from "react";
 
 const Home: NextPage = () => {
+  const categories = ["전체", "강연/토크", "교육", "대회", "DIY", "계절 행사"];
+  const books = ["/book2.png", "/book3.png", "/book4.png", "/book5.png"];
+
+  useEffect(() => {
+    fetch("http://1.240.103.57:3017/library/all", {
+      method: "GET",
+      credentials: "include", // 자격 증명을 포함하여 요청
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Response data:", data);
+      })
+      .catch((error) => {
+        console.error("Fetch error:", error);
+      });
+  }, []);
+
   return (
     <>
       <Header />
-      <div className="relative flex flex-col items-center w-full h-full py-16">
+      <div className="relative flex flex-col items-center w-full h-full py-16 overflow-y-scroll no-scrollbar">
         <FindLibBtn />
         {/* <KakaoMap /> */}
 
@@ -61,6 +87,30 @@ const Home: NextPage = () => {
               </span>
             </div>
           </div>
+        </div>
+
+        {/* 이달의 프로그램*/}
+        <div className="mt-10 w-full">
+          <div className="flex justify-between">
+            <span>이달의 프로그램</span>
+            <button>더보기 +</button>
+          </div>
+          <div>
+            {categories.map((category, i) => (
+              <span key={i}>{category}</span>
+            ))}
+          </div>
+          <div className="flex overflow-x-scroll no-scrollbar">
+            {books.map((bookUrl, i) => (
+              <div
+                className="relative min-w-[107px] w-[107px] h-[150px]"
+                key={i}
+              >
+                <Image src={bookUrl} alt="book" fill />
+              </div>
+            ))}
+          </div>
+          <div></div>
         </div>
 
         {/* 이달의 책 추천 */}
