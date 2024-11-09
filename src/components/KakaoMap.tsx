@@ -1,4 +1,3 @@
-import Script from "next/script";
 import { useEffect, useState } from "react";
 import {
   Map,
@@ -7,7 +6,7 @@ import {
   useKakaoLoader,
 } from "react-kakao-maps-sdk";
 
-const KAKAO_SDK_URL = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_JAVASCRIPT_KEY}&autoload=false&libraries=clusterer`;
+// const KAKAO_SDK_URL = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_JAVASCRIPT_KEY}&autoload=false&libraries=clusterer`;
 
 const KakaoMap = () => {
   const [randomPosition] = useState([
