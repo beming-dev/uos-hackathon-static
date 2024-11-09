@@ -1,5 +1,5 @@
 import Script from "next/script";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   Map,
   MapMarker,
@@ -10,7 +10,7 @@ import {
 const KAKAO_SDK_URL = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_JAVASCRIPT_KEY}&autoload=false&libraries=clusterer`;
 
 const KakaoMap = () => {
-  const randomPosition = [
+  const [randomPosition, setRandomPosition] = useState([
     { latitude: 37.64019, longitude: 127.0063 },
     { latitude: 37.454339, longitude: 127.107161 },
     { latitude: 37.605167, longitude: 127.039758 },
@@ -111,7 +111,7 @@ const KakaoMap = () => {
     { latitude: 37.507969, longitude: 127.149537 },
     { latitude: 37.464784, longitude: 126.956774 },
     { latitude: 37.623727, longitude: 127.110552 },
-  ];
+  ]);
 
   const customClusterStyles: object[] = [
     {
@@ -130,15 +130,19 @@ const KakaoMap = () => {
     appkey: process.env.NEXT_PUBLIC_KAKAO_JAVASCRIPT_KEY as string, // 발급 받은 APPKEY
   });
 
+  const [mapLoaded, setMapLoaded] = useState(false);
+
   useEffect(() => {
-    console.log(loading);
+    if (!loading) {
+      setMapLoaded(true);
+    }
   }, [loading]);
 
   return (
     <>
       <Script src={KAKAO_SDK_URL} strategy="beforeInteractive" />
 
-      {!loading && (
+      {mapLoaded && (
         <Map
           center={{ lat: 37.64019, lng: 127.0063 }}
           style={{ width: "100%", height: "100%" }}

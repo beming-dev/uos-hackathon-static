@@ -30,6 +30,10 @@ export default {
         custom: "0px 4px 4px rgba(0, 0, 0, 0.25)",
         custom2: "0px 2px 5px rgba(0, 0, 0, 0.1)",
       },
+      fontSize: {
+        xs: "13px", // 새로운 작은 폰트 사이즈
+        xxs: "11px",
+      },
     },
   },
   plugins: [],
