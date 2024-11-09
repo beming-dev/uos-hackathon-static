@@ -49,7 +49,7 @@ const Header = () => {
 
       {/* Sidebar */}
       <div
-        className={`fixed top-0 left-0 h-screen w-80 bg-white shadow-md z-20 transform ${
+        className={`fixed top-0 left-0 h-screen w-80 bg-white shadow-md z-50 transform ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         } transition-transform duration-300 ease-in-out`}
       >
