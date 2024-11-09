@@ -26,6 +26,7 @@ const navIcon = (
 const Navigation = () => {
   const router = useRouter();
   const iconArr = [
+    { img: "/icons/card.png", txt: "대출증", onclickUrl: "/" },
     { img: "/icons/bell-gray.png", txt: "알림", onclickUrl: "/" },
     { img: "/icons/home-gray.png", txt: "홈", onclickUrl: "/" },
     { img: "/icons/person-gray.png", txt: "내 정보", onclickUrl: "/" },

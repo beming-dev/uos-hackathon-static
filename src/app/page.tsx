@@ -35,7 +35,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Header />
-      <div className="relative flex flex-col items-center w-full h-full py-16 overflow-y-scroll no-scrollbar">
+      <div className="relative flex flex-col items-center w-full h-full py-16 overflow-y-scroll no-scrollbar pb-32">
         <FindLibBtn />
         {/* <KakaoMap /> */}
 

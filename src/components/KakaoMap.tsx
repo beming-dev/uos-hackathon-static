@@ -8,7 +8,14 @@ import {
 
 // const KAKAO_SDK_URL = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_JAVASCRIPT_KEY}&autoload=false&libraries=clusterer`;
 
-const KakaoMap = () => {
+interface Props {
+  setLibInfoPop: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const KakaoMap = ({ setLibInfoPop }: Props) => {
+  const markerImageSrc = "/icons/marker.png";
+  const imageSize = { width: 46, height: 46 };
+
   const [randomPosition] = useState([
     { latitude: 37.64019, longitude: 127.0063 },
     { latitude: 37.454339, longitude: 127.107161 },
@@ -157,6 +164,11 @@ const KakaoMap = () => {
               <MapMarker
                 key={`${pos.latitude}-${pos.longitude}`}
                 position={{ lat: pos.latitude, lng: pos.longitude }}
+                image={{
+                  src: markerImageSrc,
+                  size: imageSize,
+                }}
+                onClick={() => setLibInfoPop(true)}
               />
             ))}
           </MarkerClusterer>
