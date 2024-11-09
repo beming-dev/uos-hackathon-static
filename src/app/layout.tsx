@@ -39,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="w-screen h-screen">
+    <html lang="en" className="light w-screen h-screen">
       <body className={`${seoulNamsan.variable} antialiased w-full h-full`}>
         <main className="relative container mx-auto max-w-xs h-full m-0">
           {children}
