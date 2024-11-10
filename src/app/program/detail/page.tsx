@@ -30,7 +30,6 @@ const ProgramDetail = () => {
             return response.json();
           })
           .then((data) => {
-            console.log(data);
             setProgramInfo(data);
           })
           .catch((error) => {

@@ -101,7 +101,6 @@ const RecommendationDetail = () => {
   }, [categoryInfoArr, titleArr]);
 
   useEffect(() => {
-    console.log(gptResult);
     if (gptResult.length > 0) {
       setCategoryInfoArr(() =>
         categoryInfoArrForSave.filter((_, index) => gptResult.includes(index))
@@ -127,6 +126,11 @@ const RecommendationDetail = () => {
         <div className="mt-10">
           <span>프로그램</span>
           <div className="flex flex-col ">
+            {categoryInfoArr.length == 0 && (
+              <div className="flex items-center justify-center mt-40">
+                <div className="w-12 h-12 border-4 border-gray-200 border-t-blue-500 rounded-full animate-spin"></div>
+              </div>
+            )}
             {categoryInfoArr.map((info, i) => (
               <button
                 key={i}

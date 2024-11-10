@@ -1,5 +1,7 @@
+"use client";
 import Image from "next/image";
 import { libData } from "./KakaoMap";
+import { useRouter } from "next/navigation";
 
 interface Props {
   libData: libData;
@@ -12,12 +14,17 @@ const LibInfo = ({ libData, setLibInfoPop }: Props) => {
     return "/lib0" + randomNum + ".jpg";
   }
 
+  const router = useRouter();
+
   const onCloseClick = () => {
     setLibInfoPop(false);
   };
   return (
     <div className="absolute left-0 flex justify-center bottom-20 w-full bg-transparent overflow-hidden border border-gray-200 z-30">
-      <div className="w-[90%] bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 z-30">
+      <button
+        onClick={() => router.push(libData.homepageUrl)}
+        className="w-[90%] bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 z-30"
+      >
         {/* 이미지 섹션 */}
         <div className="relative w-full h-48">
           {/* button box */}
@@ -48,7 +55,7 @@ const LibInfo = ({ libData, setLibInfoPop }: Props) => {
           </h3>
           <p className="text-sm text-gray-600">영업 중 09:00 - 18:00</p>
         </div>
-      </div>
+      </button>
     </div>
   );
 };
