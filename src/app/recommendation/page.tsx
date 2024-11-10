@@ -1,144 +1,130 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
-import { categoryCard } from "../page";
 import Image from "next/image";
-import Header from "@/components/Header";
+import { useRouter } from "next/navigation";
 
-const ProgramDetail = () => {
-  const searchParams = useSearchParams();
-  const programNum = searchParams.get("num");
+const Recommendation = () => {
   const router = useRouter();
-
-  const [programInfo, setProgramInfo] = useState<categoryCard>();
-
-  useEffect(() => {
-    if (programNum) {
-      (async () => {
-        await fetch(`/api/program?num=${programNum}`, {
-          method: "GET",
-          credentials: "include", // 자격 증명을 포함하여 요청
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error("Network response was not ok");
-            }
-            return response.json();
-          })
-          .then((data) => {
-            console.log(data);
-            setProgramInfo(data);
-          })
-          .catch((error) => {
-            console.error("Fetch error:", error);
-          });
-      })();
-    }
-  }, [programNum]);
-
-  const dateConverter = (dateStr: string) => {
-    const date = new Date(dateStr);
-
-    // toISOString()을 사용하여 YYYY-MM-DD 형식으로 변환
-    const formattedDate = date.toISOString().split("T")[0];
-    return formattedDate;
-  };
-
-  function extractTime(dateString: string) {
-    const date = new Date(dateString);
-
-    // 시간을 두 자리로 포맷
-    const hours = date.getUTCHours().toString().padStart(2, "0");
-    const minutes = date.getUTCMinutes().toString().padStart(2, "0");
-
-    return `${hours}:${minutes}`;
-  }
-
-  function formatDate(dateString: string) {
-    const date = new Date(dateString);
-    const month = date.getMonth() + 1; // getMonth()는 0부터 시작하므로 +1 필요
-    const day = date.getDate();
-
-    return `${month.toString().padStart(2, "0")}월${day
-      .toString()
-      .padStart(2, "0")}일`;
-  }
-
   return (
-    programInfo && (
-      <>
-        <div className="relative flex flex-col w-full h-full px-4 pt-20 overflow-y-scroll no-scrollbar pb-20">
-          <Header />
-          <div className="relative w-full h-auto min-h-[500px] mb-8">
-            <Image
-              src={programInfo.imageUrl}
-              alt="program"
-              fill
-              style={{
-                borderRadius: "1rem 1rem 0 0",
-              }}
-            />
-          </div>
+    <>
+      <div className="relative  flex flex-col w-full h-full px-4 py-20 overflow-y-scroll no-scrollbar pb-32">
+        <span className="text-2xl tracking-widest">
+          AI추천 <br></br> 맞춤 프로그램 매칭
+        </span>
+        <span className="text-gray-300 text-xs mt-4 mb-8">
+          공공도서관이 추천하는 맞춤 기워드로 프로그램 둘러보기
+        </span>
 
-          <span className="text-2xl mb-4">{programInfo?.programName}</span>
-
-          <div className="mb-6">
-            <span>{programInfo?.libraryName}</span>
-          </div>
-
-          <div className="border-t-2 border-b-2 border-gray-200 py-8 px-4">
-            <div className="mb-4 flex justify-between items-center">
-              <span className="text-gray-300">접수기간</span>
-              <span>
-                {dateConverter(programInfo.acceptStart)} ~{" "}
-                {dateConverter(programInfo.acceptEnd)}
-              </span>
-            </div>
-            <div className="mb-4 flex justify-between items-center">
-              <span className="text-gray-300">강의기간</span>
-              <span>
-                {dateConverter(programInfo.startProgram)} ~{" "}
-                {dateConverter(programInfo.endProgram)}
-              </span>
-            </div>
-            <div className="mb-4 flex justify-between items-center">
-              <span className="text-gray-300">시간</span>
-              <span></span>
-            </div>
-            <div className="mb-4 flex justify-between items-center">
-              <span className="text-gray-300">대상</span>
-              <span>{programInfo.clientType}</span>
-            </div>
-            <div className="mb-4 flex justify-between items-center">
-              <span className="text-gray-300">장소</span>
-              <span>{programInfo.programPlace}</span>
-            </div>
-          </div>
-          <div className="flex justify-between items-center mt-6">
-            <div className="flex flex-col align-center">
-              <span className="text-xl text-start">
-                {programInfo.libraryName}
-              </span>
-              <span className="text-xs">
-                {formatDate(programInfo.acceptStart)} ~{" "}
-                {formatDate(programInfo.acceptEnd)}{" "}
-              </span>
-            </div>
+        <div className="flex text-white">
+          <div className="flex flex-col w-1/2 pr-2">
             <button
-              onClick={() => router.push(programInfo.programUrl)}
-              className="text-white h-10 px-10 rounded-full bg-[#007A9F]"
+              onClick={() =>
+                router.push(`/recommendation/detail?str=아이와 함께하는`)
+              }
+              className="relative rounded-2xl w-full h-[150px] bg-[#00C387] mb-4"
             >
-              예약하기
+              <span className="absolute bottom-4 left-4 text-xl">
+                아이와 <br></br> 함께하는
+              </span>
+              <Image
+                src={"/next.png"}
+                alt="next"
+                width={24}
+                height={24}
+                style={{ position: "absolute", top: "10px", right: "10px" }}
+              />
+            </button>
+            <button
+              onClick={() =>
+                router.push(`/recommendation/detail?str=내손으로 뚝딱`)
+              }
+              className="relative rounded-2xl w-full h-[104px] bg-[#FF3873] mb-4"
+            >
+              <span className="absolute bottom-4 left-4 text-xl">
+                내손으로 뚝딱!
+              </span>
+              <Image
+                src={"/next.png"}
+                alt="next"
+                width={24}
+                height={24}
+                style={{ position: "absolute", top: "10px", right: "10px" }}
+              />
+            </button>
+            <button
+              onClick={() =>
+                router.push(`/recommendation/detail?str=나를 찾아가는 독서여행`)
+              }
+              className="relative rounded-2xl w-full h-[198px] bg-[#FFEA00] mb-4"
+            >
+              <span className="absolute bottom-4 left-4 text-xl">
+                나를 찾아가는 <br></br> 독서여행
+              </span>
+              <Image
+                src={"/next.png"}
+                alt="next"
+                width={24}
+                height={24}
+                style={{ position: "absolute", top: "10px", right: "10px" }}
+              />
+            </button>
+          </div>
+          <div className=" flex flex-col w-1/2 pl-2">
+            <button
+              onClick={() =>
+                router.push(`/recommendation/detail?str=도서관 시네마`)
+              }
+              className="relative rounded-2xl w-full h-[110px] bg-[#0090FF] mb-4"
+            >
+              <span className="absolute bottom-4 left-4 text-xl">
+                도서관 시네마
+              </span>
+              <Image
+                src={"/next.png"}
+                alt="next"
+                width={24}
+                height={24}
+                style={{ position: "absolute", top: "10px", right: "10px" }}
+              />
+            </button>
+            <button
+              onClick={() =>
+                router.push(`/recommendation/detail?str=별이 빛나는 밤에`)
+              }
+              className="relative rounded-2xl w-full h-[183px] bg-[#FFB901] mb-4"
+            >
+              <span className="absolute bottom-4 left-4 text-xl">
+                별이 <br></br> 빛나는 <br></br> 밤에
+              </span>
+              <Image
+                src={"/next.png"}
+                alt="next"
+                width={24}
+                height={24}
+                style={{ position: "absolute", top: "10px", right: "10px" }}
+              />
+            </button>
+
+            <button
+              onClick={() =>
+                router.push(`/recommendation/detail?str=별이 빛나는 밤에`)
+              }
+              className="relative rounded-2xl w-full h-[157px] bg-[#B700FF] mb-4"
+            >
+              <span className="absolute bottom-4 left-4 text-xl">숲과 책</span>
+              <Image
+                src={"/next.png"}
+                alt="next"
+                width={24}
+                height={24}
+                style={{ position: "absolute", top: "10px", right: "10px" }}
+              />
             </button>
           </div>
         </div>
-      </>
-    )
+      </div>
+    </>
   );
 };
 
-export default ProgramDetail;
+export default Recommendation;

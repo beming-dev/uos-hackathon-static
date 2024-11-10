@@ -1,21 +1,24 @@
 import { NextResponse } from "next/server";
+import OpenAI from "openai";
 
-export async function GET() {
+export async function POST(req) {
   try {
-    const response = await fetch("http://1.240.103.57:3017/library/all", {
-      method: "GET",
-      credentials: "include",
-      headers: {
-        "Content-Type": "application/json",
-      },
+    const body = await req.json();
+    const { prompt } = body;
+
+    const apiKey = process.env.OPENAI_API_KEY;
+
+    const openai = new OpenAI({
+      apiKey,
     });
 
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
+    const resposnse = await openai.chat.completions.create({
+      model: "gpt-3.5-turbo",
+      messages: [{ role: "user", content: prompt }],
+    });
 
-    const data = await response.json();
-    console.log(data);
+    const data = resposnse.choices[0].message.content;
+
     return NextResponse.json(data); // 데이터를 JSON 응답으로 반환
   } catch (error) {
     console.error("Fetch error:", error);

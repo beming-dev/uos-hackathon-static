@@ -17,6 +17,9 @@ export interface libData {
   longitude: number;
   libraryId: number;
   libraryName: string;
+  homepageUrl: string;
+  startTimeDay: string;
+  endTimeDay: string;
 }
 interface Props {
   pos: pos | null;

@@ -48,16 +48,6 @@ const ProgramDetail = () => {
     return formattedDate;
   };
 
-  function extractTime(dateString: string) {
-    const date = new Date(dateString);
-
-    // 시간을 두 자리로 포맷
-    const hours = date.getUTCHours().toString().padStart(2, "0");
-    const minutes = date.getUTCMinutes().toString().padStart(2, "0");
-
-    return `${hours}:${minutes}`;
-  }
-
   function formatDate(dateString: string) {
     const date = new Date(dateString);
     const month = date.getMonth() + 1; // getMonth()는 0부터 시작하므로 +1 필요
