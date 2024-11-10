@@ -60,7 +60,7 @@ const ProgramDetail = () => {
   return (
     programInfo && (
       <>
-        <div className="relative flex flex-col w-full h-full px-4 pt-20 overflow-y-scroll no-scrollbar pb-20">
+        <div className="relative flex flex-col w-full h-full px-4 pt-20 overflow-y-scroll no-scrollbar pb-20 top-0 left-0">
           <Header />
           <div className="relative w-full h-auto min-h-[500px] mb-8">
             <Image

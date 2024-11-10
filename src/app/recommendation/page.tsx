@@ -23,7 +23,7 @@ const Recommendation = () => {
               }
               className="relative rounded-2xl w-full h-[150px] bg-[#00C387] mb-4"
             >
-              <span className="absolute bottom-4 left-4 text-xl">
+              <span className="text-start absolute bottom-4 left-4 text-xl">
                 아이와 <br></br> 함께하는
               </span>
               <Image
@@ -40,7 +40,7 @@ const Recommendation = () => {
               }
               className="relative rounded-2xl w-full h-[104px] bg-[#FF3873] mb-4"
             >
-              <span className="absolute bottom-4 left-4 text-xl">
+              <span className="text-start absolute bottom-4 left-4 text-xl">
                 내손으로 뚝딱!
               </span>
               <Image
@@ -57,7 +57,7 @@ const Recommendation = () => {
               }
               className="relative rounded-2xl w-full h-[198px] bg-[#FFEA00] mb-4"
             >
-              <span className="absolute bottom-4 left-4 text-xl">
+              <span className="text-start absolute bottom-4 left-4 text-xl">
                 나를 찾아가는 <br></br> 독서여행
               </span>
               <Image
@@ -76,7 +76,7 @@ const Recommendation = () => {
               }
               className="relative rounded-2xl w-full h-[110px] bg-[#0090FF] mb-4"
             >
-              <span className="absolute bottom-4 left-4 text-xl">
+              <span className="text-start absolute bottom-4 left-4 text-xl">
                 도서관 시네마
               </span>
               <Image
@@ -93,7 +93,7 @@ const Recommendation = () => {
               }
               className="relative rounded-2xl w-full h-[183px] bg-[#FFB901] mb-4"
             >
-              <span className="absolute bottom-4 left-4 text-xl">
+              <span className="text-start absolute bottom-4 left-4 text-xl">
                 별이 <br></br> 빛나는 <br></br> 밤에
               </span>
               <Image
@@ -106,9 +106,7 @@ const Recommendation = () => {
             </button>
 
             <button
-              onClick={() =>
-                router.push(`/recommendation/detail?str=별이 빛나는 밤에`)
-              }
+              onClick={() => router.push(`/recommendation/detail?str=숲과 책`)}
               className="relative rounded-2xl w-full h-[157px] bg-[#B700FF] mb-4"
             >
               <span className="absolute bottom-4 left-4 text-xl">숲과 책</span>
