@@ -73,6 +73,7 @@ const KakaoMap = ({ pos }: Props) => {
             return response.json();
           })
           .then((data) => {
+            console.log(data);
             setLibData(() => data);
             setLibDataForSave(() => data);
           })

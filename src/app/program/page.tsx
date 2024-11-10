@@ -100,6 +100,13 @@ const Program = () => {
       <Header />
       <div className="relative flex flex-col w-full h-full px-4 py-20 overflow-y-scroll no-scrollbar pb-32">
         <span className="text-2xl">프로그램 찾기</span>
+        <button
+          className="w-10 h-10 rounded-full bg-black"
+          onClick={() => router.push("/recommendation")}
+        >
+          {" "}
+          추천
+        </button>
         <div className="mt-10 w-20 border-b border-black">
           <select id="gu-select" className="w-full">
             {gu.map((data) => (

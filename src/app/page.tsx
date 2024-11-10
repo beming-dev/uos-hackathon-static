@@ -209,14 +209,17 @@ const Home: NextPage = () => {
               노원중앙도서관
             </span>
           </div>
-          <span
+          <button
             className="text-xxs underline"
+            onClick={() =>
+              router.push("https://lib.seoul.go.kr/rwww/html/ko/hopeBook.jsp")
+            }
             style={{
               textUnderlineOffset: "4px",
             }}
           >
             원하는 도서관에 신간도서 신청하기
-          </span>
+          </button>
         </div>
       </div>
     </>

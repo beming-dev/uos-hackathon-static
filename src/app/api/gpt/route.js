@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  console.log(1);
   try {
     const response = await fetch("http://1.240.103.57:3017/library/all", {
       method: "GET",
