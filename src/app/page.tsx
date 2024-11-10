@@ -83,7 +83,14 @@ const Home: NextPage = () => {
                 />
                 <span className="ml-2 flex-1">독서토론게시판</span>
               </div>
-              <div className="px-2 flex justify-between items-center w-star h-star shadow-custom2 rounded-md text-xs">
+              <div
+                onClick={() =>
+                  router.push(
+                    "https://lib.seoul.go.kr/rwww/html/ko/hopeBook.jsp"
+                  )
+                }
+                className="px-2 flex justify-between items-center w-star h-star shadow-custom2 rounded-md text-xs"
+              >
                 <Image
                   src={"/icons/star-03.png"}
                   width={14.5}
