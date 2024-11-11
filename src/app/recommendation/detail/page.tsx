@@ -25,38 +25,38 @@ const RecommendationDetail = () => {
   const searchParams = useSearchParams();
   const str = searchParams.get("str");
 
+  const router = useRouter();
   const [isGptUsed, setIsGptUsed] = useState(false);
-  const [titleArr, setTitleArr] = useState<string[]>([]);
+  const [titleArr] = useState<string[]>([]);
   const [categoryInfoArr, setCategoryInfoArr] = useState<categoryCard[]>([]);
-  const [categoryInfoArrForSave, setCategoryInfoArrForSave] = useState<
-    categoryCard[]
-  >([]);
+  const [categoryInfoArrForSave] = useState<categoryCard[]>([]);
   const [gptResult, setGptResult] = useState<number[]>([]);
-
   useEffect(() => {
-    (async () => {
-      await fetch("/api/program", {
-        method: "GET",
-        credentials: "include", // 자격 증명을 포함하여 요청
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-          return response.json();
-        })
-        .then((data: categoryCard[]) => {
-          const a = data.map((item) => item.programName);
-          setCategoryInfoArrForSave(() => data);
-          setTitleArr(() => a);
-        })
-        .catch((error) => {
-          console.error("Fetch error:", error);
-        });
-    })();
+    alert("비용 문제로 현재 비활성화 돼있습니다.");
+    router.forward();
+    // (async () => {
+    //   await fetch("/api/program", {
+    //     method: "GET",
+    //     credentials: "include", // 자격 증명을 포함하여 요청
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //   })
+    //     .then((response) => {
+    //       if (!response.ok) {
+    //         throw new Error("Network response was not ok");
+    //       }
+    //       return response.json();
+    //     })
+    //     .then((data: categoryCard[]) => {
+    //       const a = data.map((item) => item.programName);
+    //       setCategoryInfoArrForSave(() => data);
+    //       setTitleArr(() => a);
+    //     })
+    //     .catch((error) => {
+    //       console.error("Fetch error:", error);
+    //     });
+    // })();
   }, []);
 
   useEffect(() => {
@@ -114,7 +114,6 @@ const RecommendationDetail = () => {
     const formattedDate = date.toISOString().split("T")[0];
     return formattedDate;
   };
-  const router = useRouter();
 
   return (
     <>

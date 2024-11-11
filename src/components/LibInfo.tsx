@@ -19,10 +19,14 @@ const LibInfo = ({ libData, setLibInfoPop }: Props) => {
   const onCloseClick = () => {
     setLibInfoPop(false);
   };
+  const onHomepageClick = () => {
+    if (libData.homepageUrl) router.push(libData.homepageUrl);
+  };
+
   return (
     <div className="absolute left-0 flex justify-center bottom-20 w-full bg-transparent overflow-hidden border border-gray-200 z-30">
       <button
-        onClick={() => router.push(libData.homepageUrl)}
+        onClick={onHomepageClick}
         className="w-[90%] bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 z-30"
       >
         {/* 이미지 섹션 */}
