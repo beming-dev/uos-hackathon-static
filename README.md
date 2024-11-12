@@ -2,7 +2,7 @@
 
 Team 대왕고래
 
-(사이트 링크)[https://uos-hackathon-static.vercel.app/]
+[웹사이트 링크](https://uos-hackathon-static.vercel.app/)
 
 2024 UOS Hackathon
 
@@ -59,9 +59,11 @@ Spring boot, MYSQL, Apache Airflow
 
 # Link
 
-(Website)[https://uos-hackathon-static.vercel.app/]
-(Frontend-repository)[https://github.com/UOSHackathon2024/frontend]
-(Backend-repository)[https://github.com/UOSHackathon2024/connect_seoul_book]
+[Website](https://uos-hackathon-static.vercel.app/)
+
+[Frontend-repository](https://github.com/UOSHackathon2024/frontend)
+
+[Backend-repository](https://github.com/UOSHackathon2024/connect_seoul_book)
 (Figma)[]
 
 # More
