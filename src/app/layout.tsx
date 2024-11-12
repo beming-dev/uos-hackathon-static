@@ -35,6 +35,22 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.png",
   },
+  openGraph: {
+    images: [
+      {
+        url: "/logo.png",
+        alt: "로고",
+      },
+    ],
+  },
+  twitter: {
+    images: [
+      {
+        url: "/logo.png",
+        alt: "로고",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
