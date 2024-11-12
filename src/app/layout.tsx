@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     description: "편리한 서울시 도서관 이용 앱",
     images: [
       {
-        url: "/logo.png",
+        url: "/thumbnail.png",
         alt: "로고",
       },
     ],
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     description: "편리한 서울시 도서관 이용 앱",
     images: [
       {
-        url: "/logo.png",
+        url: "/thumbnail.png",
         alt: "로고",
       },
     ],
