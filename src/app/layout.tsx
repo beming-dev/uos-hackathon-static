@@ -35,6 +35,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.png",
   },
+  metadataBase: new URL("https://uos-hackathon-static.vercel.app"),
   openGraph: {
     images: [
       {
