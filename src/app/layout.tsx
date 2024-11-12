@@ -37,6 +37,8 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL("https://uos-hackathon-static.vercel.app"),
   openGraph: {
+    title: "서울도서이음",
+    description: "편리한 서울시 도서관 이용 앱",
     images: [
       {
         url: "/logo.png",
@@ -45,6 +47,8 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
+    title: "서울도서이음",
+    description: "편리한 서울시 도서관 이용 앱",
     images: [
       {
         url: "/logo.png",
