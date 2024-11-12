@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.png",
   },
-  metadataBase: new URL("https://uos-hackathon-static.vercel.app"),
+  metadataBase: new URL("https://uos-hackathon-static.vercel.app/"),
   openGraph: {
     title: "서울도서이음",
     description: "편리한 서울시 도서관 이용 앱",
