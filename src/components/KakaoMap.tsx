@@ -30,7 +30,7 @@ interface Props {
 }
 
 const KakaoMap = ({ pos }: Props) => {
-  const [] = useKakaoLoader({
+  const [loading] = useKakaoLoader({
     appkey: process.env.NEXT_PUBLIC_KAKAO_JAVASCRIPT_KEY as string, // 발급 받은 APPKEY
     libraries: ["clusterer"],
   });
@@ -6890,7 +6890,7 @@ const KakaoMap = ({ pos }: Props) => {
   ]);
   const [libInfoPop, setLibInfoPop] = useState(false);
   const [selected, setSelected] = useState(0);
-  const [mapLoaded] = useState(false);
+  const [mapLoaded, setMapLoaded] = useState(false);
   const [isConnectClicked, setIsConnectClicked] = useState(false);
 
   const customClusterStyles: object[] = [
@@ -6936,6 +6936,10 @@ const KakaoMap = ({ pos }: Props) => {
   //     })();
   //   }
   // }, [loading]);
+
+  useEffect(() => {
+    if (!loading) setMapLoaded(true);
+  }, [loading]);
 
   useEffect(() => {
     if (isConnectClicked) {
