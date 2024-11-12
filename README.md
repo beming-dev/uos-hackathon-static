@@ -64,7 +64,8 @@ Spring boot, MYSQL, Apache Airflow
 [Frontend-repository](https://github.com/UOSHackathon2024/frontend)
 
 [Backend-repository](https://github.com/UOSHackathon2024/connect_seoul_book)
-(Figma)[]
+
+[Figma]()
 
 # More
 
